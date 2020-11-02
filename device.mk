@@ -254,7 +254,6 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
-    libavservices_minijail.vendor \
     libcodec2_vndk.vendor \
     libcodec2_hidl@1.0.vendor \
     libOmxAacEnc \
@@ -322,6 +321,9 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat
 
 # QTI
+TARGET_COMMON_QTI_COMPONENTS := \
+    perf
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
     $(LOCAL_PATH)/configs/permissions/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml
