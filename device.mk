@@ -129,7 +129,8 @@ PRODUCT_PACKAGES += \
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.target.rc
+    init.target.rc \
+    init.xiaomi.perf.rc
 
 # Input
 PRODUCT_COPY_FILES += \
