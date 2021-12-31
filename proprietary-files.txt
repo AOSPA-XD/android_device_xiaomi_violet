@@ -1,3 +1,5 @@
+# These proprietary files are extracted from Redmi Note 7 Pro (codenamed `violet`) MIUI V12.5.4.0.QFHCNXM, unless pinned
+
 # ADSP - from Redmi Note 10 Pro V12.5.9.0.RKFMIXM
 vendor/bin/adsprpcd|c1b9fe936ffbcd5a875baa785f4b9629366083ec
 vendor/bin/cdsprpcd|63f7be350d30b9d4181ded5b9cba956bff04439c
@@ -414,8 +416,8 @@ vendor/lib64/libQSEEComAPI.so|a739303816492c261f6e8525d0957ff37a9b01ea
 vendor/lib64/librpmb.so|60a8b54660e885bc8fa51a1e593ba5f491f5f71b
 vendor/lib64/libssd.so|a00caa9a0bdf44bafbb18856a7ef3f54014e3941
 
-# DRM L1
-vendor/lib64/liboemcrypto.so
+# DRM L1 - from Redmi Note 7 Pro V12.5.1.0.QFHINXM
+vendor/lib64/liboemcrypto.so|2cee717b25559030a61709e826b4a5dae6043c20
 
 # DRM widevine - from Redmi Note 10 Pro V12.5.9.0.RKFMIXM
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine|07ac13a602f25788e54c1500c2957f561dd9f90a
@@ -455,7 +457,6 @@ vendor/firmware/a615_zap.b00
 vendor/firmware/a615_zap.b01
 vendor/firmware/a615_zap.b02
 vendor/firmware/a615_zap.elf
-vendor/firmware/a618_gmu.bin
 vendor/firmware/a630_sqe.fw
 
 # Gatekeeper - from Redmi Note 10 Pro V12.5.9.0.RKFMIXM
@@ -540,7 +541,6 @@ vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|daed5d425d6cd03cc5e23b
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so|653cd6cae81499a416d97b9fb920ddcb2816c8a9
 
 # IPA
-vendor/etc/init/ipa_fws.rc
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
 vendor/firmware/ipa_fws.b02
@@ -806,6 +806,7 @@ vendor/etc/thermal-engine-pubgmhd.conf
 vendor/etc/thermal-engine-sgame.conf
 vendor/etc/thermal-engine-studio.conf
 vendor/etc/thermal-engine-tgame.conf
+vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalfeature.so
 
 # Time - from Redmi Note 10 Pro V12.5.9.0.RKFMIXM
