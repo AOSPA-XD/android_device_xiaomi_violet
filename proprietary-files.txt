@@ -576,10 +576,8 @@ vendor/lib/librice.so|30f281ca3307bee5072c7b1eeea743b466af95ac
 vendor/lib/libsmwrapper.so|6c54b63ef92319b660854065623f30e8b94d3444
 
 # Media - from LA.UM.9.1.r1-10900-SMxxx0.0
-vendor/bin/hw/vendor.qti.media.c2@1.0-service|83c2effb6f76cb095bae840d95a2026014d92fe9
 vendor/bin/vppservice|0f77fd06c6438ded5e5704769db6cb1154d96cbe
 vendor/etc/configstore/vpp.configstore.xml|ed961545186c66fd9523f25866c74f2e11ee63d7
-vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
 vendor/etc/init/vppservice.rc|24c089e0e413cbb3fa6daaf0af4215870bdf1b8e
 vendor/etc/seccomp_policy/codec2.vendor.base.policy|05b0779b5da2ea640984d46a46a796edeaab5fab
 vendor/etc/seccomp_policy/codec2.vendor.ext.policy|6a9a9eb3261048f02805261568097410e1a23b2d
@@ -602,12 +600,9 @@ vendor/lib/libOmxApeDecSw.so|f3e64e54808f57f146173532335ea45db1fb54f4
 vendor/lib/libOmxDsdDec.so|f74936badeb8303b2bb17475b9cd157b1c81131c
 vendor/lib/libOmxEvrcDec.so|ad5886dfe926939436176fc536f3063a02030f38
 vendor/lib/libOmxQcelp13Dec.so|fd941876c153a669eb41395b869de57001a431d8
-vendor/lib/libOmxSwVdec.so|c343595462ab7bc0d3f670449ef2973251b3d876
-vendor/lib/libOmxSwVencMpeg4.so|18c50079e9cfe68e125233249c4014d6aea173d6
 vendor/lib/libOmxVpp.so|e4728f604f69a9fc4c07d12cf666839c77ec6555
 vendor/lib/libOmxWmaDec.so|9e30df0b706ef4420b0ac6052f98bec8e41ea412
 vendor/lib/libqcodec2.so|3f88da7cb182fa100b2641802266770304727ffb
-vendor/lib/libswvdec.so|470a275b120633d7a0d756a7d30a817b25d2e54e
 vendor/lib/libvppclient.so|cb2038656aadc542198b0932f13ebdb9c37e35a5
 vendor/lib/libvpphvx.so|e5b3bfc86080fb20efd5ad3b47417566eab8319d
 vendor/lib/libvpplibrary.so|612c490abe2ade3caa0594756e1ed0cdfa07874b
