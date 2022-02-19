@@ -77,8 +77,6 @@ vendor/etc/acdbdata/IDP/IDP_Speaker_cal.acdb
 vendor/firmware/tas2563_uCDSP.bin
 
 # Audio FX modules - from LA.UM.9.1.r1-10900-SMxxx0.0
-system_ext/etc/permissions/audiosphere.xml|015ad7be4921039238bfa3d34d052d752453e49c
-system_ext/framework/audiosphere.jar|9c28317f12b93a6d881c80a991ff24716fce4a12
 vendor/lib/soundfx/libasphere.so|b2daeb875914a33575c7d7a67429f25d09d35489
 vendor/lib/soundfx/libshoebox.so|214d5fefd21c617bdfa05255fe667127b4242556
 
