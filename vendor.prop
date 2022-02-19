@@ -54,11 +54,6 @@ persist.sys.sf.color_mode=9
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
-# IMS
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
-
 # Radio
 persist.vendor.radio.data_ltd_sys_ind=1
 persist.vendor.radio.dynamic_sar=1
