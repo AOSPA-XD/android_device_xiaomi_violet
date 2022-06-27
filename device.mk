@@ -163,10 +163,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.xiaomi
 
-# Media
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml
-
 # Overlay
 PRODUCT_PACKAGES += \
     AOSPAVioletFrameworks \
