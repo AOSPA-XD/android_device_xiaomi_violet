@@ -222,10 +222,6 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor \
     CarrierConfigOverlay
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_xiaomi
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0.vendor \
