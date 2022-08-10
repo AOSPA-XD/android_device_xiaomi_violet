@@ -30,6 +30,7 @@ persist.radio.VT_HYBRID_ENABLE=1
 ro.telephony.default_cdma_sub=0
 
 # Recovery
+persist.vendor.flash.recovery=1
 ro.recovery.ui.margin_height=48
 
 # WiFi
