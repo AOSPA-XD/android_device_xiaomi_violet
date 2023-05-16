@@ -191,6 +191,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGES += \
     AOSPAVioletFrameworksOverlay \
     AOSPAVioletSettingsOverlay \
+    VioletCarrierConfigOverlay \
     VioletFrameworksOverlay \
     VioletSettingsProviderOverlay \
     VioletSystemUIOverlay \
