@@ -1,3 +1,10 @@
+```
+#
+# Copyright (C) 2022 Paranoid Android
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+```
 The Xiaomi Redmi Note 7 Pro (codenamed _"violet"_) is a mid range smartphone from Xiaomi.
 
 It was announced in February 2019 and released in March 2019.

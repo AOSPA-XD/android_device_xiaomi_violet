@@ -1,17 +1,7 @@
 #
-# Copyright (C) 2020 The LineageOS Project
+# Copyright (C) 2023 Paranoid Android
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
 # Product launched with 9.0
@@ -19,9 +9,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
-
-# Call the proprietary setup
-$(call inherit-product, vendor/xiaomi/violet/violet-vendor.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -31,19 +18,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
-# ANT+
-PRODUCT_PACKAGES += \
-    com.dsi.ant@1.0.vendor
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
-    android.hardware.audio.service \
-    android.hardware.bluetooth.audio@2.0-impl
-
-PRODUCT_PACKAGES += \
-    audio.bluetooth.default
+    android.hardware.audio.service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -52,14 +31,25 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths_idp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_idp.xml
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@2.0.vendor
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.vendor.bt.a2dp.aac_whitelist=false \
+    persist.vendor.bt.a2dp.mac_whitelist=false \
+    persist.vendor.btstack.enable.twsplus=true \
+    persist.vendor.btstack.enable.twsplussho=true \
+    persist.vendor.btsatck.absvolfeature=true \
+    persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=false \
+    ro.bluetooth.library_name=libbluetooth_qti.so \
+    vendor.bluetooth.soc=cherokee
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2340
-TARGET_SCREEN_WIDTH := 1080
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive \
+    persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true \
+    persist.vendor.qcom.bluetooth.enable.splita2dp=true \
+    persist.vendor.qcom.bluetooth.scram.enabled=true \
+    persist.vendor.qcom.bluetooth.soc=cherokee \
+    persist.vendor.qcom.bluetooth.twsp_state.enabled=false \
+    ro.vendor.bluetooth.wipower=false \
+    vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -77,13 +67,61 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libc++.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libc++.so
 
-# Consumerir
+PRODUCT_SYSTEM_PROPERTIES += \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+
+PRODUCT_VENDOR_PROPERTIES += \
+    camera.disable_zsl_mode=1
+
+# Consumer IR
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
+
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl \
+    android.hardware.ir@1.0-service
+
+# Charger Properties
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.charger.enable_suspend=true
 
 # Display
 PRODUCT_PACKAGES += \
     disable_configstore
+
+# Display
+PRODUCT_VENDOR_PROPERTIES += \
+    debug.sf.disable_backpressure=1 \
+    ro.surface_flinger.protected_contents=true \
+    debug.sf.use_phase_offsets_as_durations=1 \
+    debug.sf.late.sf.duration=10500000 \
+    debug.sf.late.app.duration=20500000 \
+    debug.sf.early.sf.duration=21000000 \
+    debug.sf.early.app.duration=16500000 \
+    debug.sf.earlyGl.sf.duration=13500000 \
+    debug.sf.earlyGl.app.duration=21000000 \
+    debug.sf.enable_egl_image_tracker=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1 \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.has_wide_color_display=true \
+    ro.surface_flinger.has_HDR_display=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    ro.surface_flinger.max_virtual_display_dimension=4096 \
+    ro.surface_flinger.protected_contents=true \
+    ro.surface_flinger.use_color_management=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696 \
+    vendor.display.qdcm.mode_combine=1
+
+# Display - Set color mode to Adaptive by default
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.sf.native_mode=2 \
+    persist.sys.sf.color_mode=9
+
+# DPM
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.dpmhalservice.enable=1
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -95,6 +133,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
+
+# FRP
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # GPS Configs
 PRODUCT_COPY_FILES += \
@@ -132,11 +174,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     $(LOCAL_PATH)/configs/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc
 
-# IR
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl \
-    android.hardware.ir@1.0-service
-
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/security/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
@@ -144,10 +181,7 @@ PRODUCT_COPY_FILES += \
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
-
-# Keylayout
-PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl \
     $(LOCAL_PATH)/configs/keylayout/sm6150-idp-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/sm6150-idp-snd-card_Button_Jack.kl
 
 # Keymaster
@@ -158,18 +192,26 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.xiaomi
 
+# Netflix
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.netflix.bsp_rev=Q6150-17263-1
+
 # Overlay
 PRODUCT_PACKAGES += \
-    AOSPAVioletFrameworks \
-    AOSPAVioletSettings \
-    VioletFrameworks \
-    VioletSettingsProvider \
-    VioletSystemUI \
+    AOSPAVioletFrameworksOverlay \
+    AOSPAVioletSettingsOverlay \
+    VioletFrameworksOverlay \
+    VioletSettingsProviderOverlay \
+    VioletSystemUIOverlay \
     VioletWifiOverlay
 
 # ParanoidDoze
 PRODUCT_PACKAGES += \
     ParanoidDoze
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.sensor.pickup=xiaomi.sensor.pickup
+    ro.sensor.proximity=true
 
 # Perf
 PRODUCT_COPY_FILES += \
@@ -194,7 +236,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
     display \
     gps \
     init \
-    media-legacy \
+    media \
     overlay \
     perf \
     telephony \
@@ -204,8 +246,20 @@ TARGET_COMMON_QTI_COMPONENTS := \
     wlan
 
 # RIL
-PRODUCT_PACKAGES += \
-    CarrierConfigOverlay
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.rcs.supported=1 \
+    persist.radio.NO_STAPA=1 \
+    persist.radio.VT_HYBRID_ENABLE=1 \
+    ro.telephony.default_cdma_sub=0
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.dynamic_sar=1 \
+    persist.vendor.radio.force_ltd_sys_ind=1 \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.manual_nw_rej_ct=1 \
+    persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.report_codec=1
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -233,15 +287,19 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    libwpa_client \
-    WifiOverlay
+    libwpa_client
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.telephony.iwlan_operation_mode=legacy
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libwfdaac_vendor
 
+# Call the proprietary setup
+$(call inherit-product, vendor/xiaomi/violet/violet-vendor.mk)

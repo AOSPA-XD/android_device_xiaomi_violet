@@ -5,6 +5,8 @@
 //
 
 runtime_resource_overlay {
-    name: "VioletWifiOverlay",
+    name: "AOSPAVioletSettingsOverlay",
+    sdk_version: "current",
     vendor: true,
 }
+
