@@ -73,6 +73,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_VENDOR_PROPERTIES += \
     camera.disable_zsl_mode=1
 
+# Capability Configstore
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+
 # Consumer IR
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
