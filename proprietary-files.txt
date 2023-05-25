@@ -823,5 +823,8 @@ vendor/lib/libwfdutils_proprietary.so|788cc674ac7ba6e4c985ec9e8515c143f55e881b
 vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so|c08e1803c3089ee5da37b0a56eb9c2bdf9aeb4b2
 vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so|380ad98e1752662d1a2e2f6105fbcc8c28557d2c
 
+# WLAN - from LA.UM.9.1.r1-12900-SMxxx0.0
+vendor/bin/cnss-daemon|466fbe54a79f244475adb13ddd0e55f17fee3d66
+
 # Xiaomi MAC - from Redmi Note 10 Pro V14.0.2.0.TKFMIXM
 vendor/bin/nv_mac|207d44cfbced7d7ae2c9f8cb98779b89dfe5c16a
