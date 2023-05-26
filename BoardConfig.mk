@@ -44,8 +44,10 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 
 # Kernel
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 
@@ -59,7 +61,7 @@ BOARD_KERNEL_CMDLINE := \
     lpm_levels.sleep_disabled=1 \
     service_locator.enable=1
 
-BOARD_MKBOOTIMG_ARGS := --header_version 1
+BOARD_MKBOOTIMG_ARGS := --header_version 2
 
 TARGET_KERNEL_CONFIG := violet_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/violet
