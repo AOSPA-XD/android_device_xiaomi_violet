@@ -63,8 +63,8 @@ BOARD_KERNEL_CMDLINE := \
 
 BOARD_MKBOOTIMG_ARGS := --header_version 2
 
-TARGET_KERNEL_CONFIG := violet_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/violet
+TARGET_KERNEL_CONFIG := vendor/sdmsteppe-perf_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6150
 
 # Media
 TARGET_DISABLED_UBWC := true
