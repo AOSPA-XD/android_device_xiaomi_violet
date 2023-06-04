@@ -89,6 +89,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.charger.enable_suspend=true
 
+# Crypto Properties
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.metadata.method=dm-default-key
+
 # Display
 PRODUCT_PACKAGES += \
     disable_configstore
